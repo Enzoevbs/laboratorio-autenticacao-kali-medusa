@@ -10,7 +10,7 @@ O estudo considera três tipos de cenário:
 - **Formulário web (DVWA):** tentativas automatizadas de login.
 - **SMB:** tentativas distribuídas entre contas e risco de enumeração de usuários.
 
-Medusa é citada como ferramenta de auditoria de autenticação, e Metasploitable/DVWA como ambientes vulneráveis de treinamento. Este repositório **não contém comandos operacionais, wordlists ou automação de login**, e não registra acessos validados. Os testes práticos não foram executados.
+Medusa é citada como ferramenta de auditoria de autenticação, e Metasploitable/DVWA como ambientes vulneráveis de treinamento. Este repositório **não contém comandos operacionais, wordlists ou automação de login**. Os exemplos de código abaixo analisam somente eventos fictícios em arquivo; não se conectam a serviços e não validam acessos.
 
 ## Ambiente seguro
 
@@ -24,6 +24,16 @@ Se você montar um laboratório por conta própria, utilize somente VMs descart�
 
 Como não foram feitas tentativas, não há credenciais ou acessos a validar. Em um relatório autorizado, documente apenas resultados obtidos no próprio laboratório, sem publicar senhas ou dados pessoais.
 
+## Demonstração offline
+
+O arquivo `examples/auth_events.csv` contém eventos inventados para FTP, web e SMB. Para gerar um resumo local, execute a partir da pasta do repositório:
+
+```bash
+python examples/analyze_auth_logs.py
+```
+
+O script conta falhas por serviço e origem, sinaliza três ou mais falhas e destaca um sucesso ocorrido depois de falhas daquela origem/serviço. A contagem cobre o arquivo inteiro: é uma demonstração simples, não um detector de produção nem uma análise temporal. Os endereços `192.0.2.x` são reservados para documentação.
+
 ## Mitigações recomendadas
 
 1. Habilitar MFA, sobretudo para acesso remoto e contas administrativas.
@@ -35,4 +45,4 @@ Como não foram feitas tentativas, não há credenciais ou acessos a validar. Em
 
 ## Conclusão
 
-Ferramentas de auditoria ajudam a compreender riscos, mas devem ser utilizadas apenas com autorização. Para este projeto, a entrega é intencionalmente simples: documentação textual e recomendações defensivas, sem execução de ataques.
+Ferramentas de auditoria ajudam a compreender riscos, mas devem ser utilizadas apenas com autorização. A entrega é intencionalmente simples: documentação, recomendações defensivas e um analisador offline de eventos fictícios, sem execução de ataques.

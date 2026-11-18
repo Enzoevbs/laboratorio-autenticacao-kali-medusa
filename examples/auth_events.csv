@@ -1,0 +1,8 @@
+timestamp,event,service,source_ip,username,result
+2026-01-15T10:00:00Z,authentication,ftp,192.0.2.10,conta-teste,failure
+2026-01-15T10:00:30Z,authentication,ftp,192.0.2.10,conta-teste,failure
+2026-01-15T10:01:00Z,authentication,ftp,192.0.2.10,conta-teste,success
+2026-01-15T10:04:00Z,authentication,web,192.0.2.30,usuario-a,failure
+2026-01-15T10:04:10Z,authentication,web,192.0.2.30,usuario-b,failure
+2026-01-15T10:04:20Z,authentication,web,192.0.2.30,usuario-c,failure
+2026-01-15T10:12:00Z,authentication,smb,192.0.2.20,conta-lab,failure
